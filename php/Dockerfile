@@ -31,6 +31,9 @@ RUN docker-php-ext-install zip
 # 10. MySQL ネイティブドライバをインストール
 RUN docker-php-ext-install pdo_mysql
 
+# 10追加 MySQLiをインストール
+RUN docker-php-ext-install mysqli
+
 # 11. Apache の rewrite モジュールを有効化
 RUN a2enmod rewrite
 
