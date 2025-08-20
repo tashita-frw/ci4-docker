@@ -16,8 +16,30 @@ cd ci4-docker
 ```
 docker-compose up -d --build
 ```
+4.appコンテナに入り、composerのインストールとwritableの必要なフォルダを作成
+```
+docker-compose exec app bash
+```
 
-4.dbコンテナに入り、mysqlで下記クエリを実行
+```
+cd /var/www/html/src
+```
+
+```
+composer install
+```
+
+```
+mkdir -p /var/www/html/src/writable/{cache,logs,session,uploads}
+```
+```
+chown -R www-data:www-data /var/www/html/src/writable
+```
+```
+chmod -R 775 /var/www/html/src/writable
+```
+
+5.dbコンテナに入り、mysqlで下記クエリを実行
 ```
 docker-compose exec db bash
 ```
