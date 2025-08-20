@@ -1,0 +1,2 @@
+<p>This tutorial is intended to introduce you to the CodeIgniter4 framework and the basic principles of MVC architecture. It will show you how a basic CodeIgniter application is constructed in a step-by-step fashion.
+</p>
