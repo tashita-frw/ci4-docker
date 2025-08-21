@@ -26,11 +26,11 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'username'     => 'ci4user',
-        'hostname'     => 'db',
-        'password'     => 'secret',
-        'database'     => 'ci4db',
-        'DBDriver'     => 'MySQLi',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'database_name',
+        'DBDriver' => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
