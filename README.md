@@ -16,7 +16,7 @@ cd ci4-docker
 ```
 cp .env.example .env
 ```
-.envを設定(例)
+.env設定(例)
 ```
 # App settings
 APP_PORT=8080
