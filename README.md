@@ -9,10 +9,21 @@ git clone git@github.com:tashita-frw/ci4-docker
 
 2.DockerDesktopアプリを立ち上げる  
 
-3.プロジェクト直下に移動し、以下のコマンドを実行する  
+3.プロジェクト直下に移動し、.envファイルを設定する。
 ```
 cd ci4-docker
 ```
+```
+cp .env.example .env
+```
+.envを設定(例)
+```
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=ci4db
+MYSQL_USER=ci4user
+MYSQL_PASSWORD=ci4pass
+```
+その後下記コマンドを実行。
 ```
 docker-compose up -d --build
 ```
@@ -20,15 +31,12 @@ docker-compose up -d --build
 ```
 docker-compose exec app bash
 ```
-
 ```
 cd /var/www/html/src
 ```
-
 ```
 composer install
 ```
-
 ```
 mkdir -p /var/www/html/src/writable/{cache,logs,session,uploads}
 ```
@@ -38,7 +46,21 @@ chown -R www-data:www-data /var/www/html/src/writable
 ```
 chmod -R 775 /var/www/html/src/writable
 ```
+codeigniterの環境変数の設定
 
+```
+cp env .env
+```
+```
+chmod -R 775 /var/www/html/src/.env
+```
+環境変数を設定(例)
+```
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=ci4db
+MYSQL_USER=ci4user
+MYSQL_PASSWORD=ci4pass
+```
 5.dbコンテナに入り、mysqlで下記クエリを実行
 ```
 docker-compose exec db bash
@@ -46,7 +68,7 @@ docker-compose exec db bash
 ```
 mysql -u root -p
 ```
-※passwordは、docker-compose.ymlファイル参照
+※passwordは、プロジェクト直下の.env参照
 ```
 USE ci4db
 ```
